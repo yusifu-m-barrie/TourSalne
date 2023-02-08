@@ -1,12 +1,10 @@
 import {
   faBed,
+  faBowlFood,
   faCalendarDays,
-  faCar,
+  faCampground,
   faHome,
   faPerson,
-  faPlane,
-  faSpoon,
-  faTaxi,
   faUmbrellaBeach,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,6 +17,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -66,34 +65,47 @@ const Header = ({ type }) => {
       >
         <div className="headerList">
           <div className="headerListItem active">
+            <FontAwesomeIcon icon={faBed} />
+            <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+          <span>Hotel</span>
+        </Link>
+          </div>
+          <div className="headerListItem">
+            <FontAwesomeIcon icon={faCampground} />
+            <span>CampGrounds</span>
+          </div>
+          <div className="headerListItem">
             <FontAwesomeIcon icon={faHome} />
-            <span>Hotels</span>
+            <span>EcoLodge</span>
           </div>
+
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faSpoon} />
-            <span>Restaurant</span>
+            <FontAwesomeIcon icon={faUmbrellaBeach} />
+            <Link to="./attractions" style={{ color: "inherit", textDecoration: "none"}}>
+            <span>Attractions</span>
+            </Link>      
           </div>
+          
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car Rentals</span>
+            <FontAwesomeIcon icon={faBowlFood} />
+            <span>Restaurants</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
+            <span>GuestHouse</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faUmbrellaBeach} />
-            <span>Beaches</span>
+            <FontAwesomeIcon icon={faBed} />
+            <span>Bed&Breafast</span>
           </div>
         </div>
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-              A lifetime of discounts? It's Genius.
+            Search hotels in Sierra Leone
             </h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+            Enter your dates to see the latest prices and deals for Makeni hotels 
             </p>
             {!user && <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
@@ -101,7 +113,7 @@ const Header = ({ type }) => {
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
                 <input
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="where are you going?"
                   className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
                 />
