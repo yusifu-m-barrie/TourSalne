@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+
+# envs
+.env
+.env.*
+
+# build
+client/build
+
+# misc
+.DS_Store

@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/auth/:path*",
+      "destination": "/api/auth/:path*"
+    },
+    {
+      "source": "/users/:path*",
+      "destination": "/api/users/:path*"
+    },
+    {
+      "source": "/hotels/:path*",
+      "destination": "/api/hotels/:path*"
+    },
+    {
+      "source": "/rooms/:path*",
+      "destination": "/api/rooms/:path*"
+    }
+  ]
+}
