@@ -11,16 +11,16 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 
-// Connect DB once (cached)
+// Connect DB once
 app.use(async (_req, _res, next) => {
   await connectDB();
   next();
 });
 
-// Health
+// Health check
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
-// Mounted routes detected from /server/routes
+// Routes
 // Add your routes under /server/routes and mount them here.
 
 export const config = {
